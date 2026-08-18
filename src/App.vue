@@ -1,38 +1,15 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-
-type Page = 'subscribers' | 'signup'
-
-const currentPage = ref<Page>('subscribers')
-</script>
-
 <template>
   <header class="site-header">
-    <a class="brand" href="#" @click.prevent="currentPage = 'subscribers'">
-      Treehouse Newsletter
-    </a>
+    <RouterLink class="brand" to="/subscribers">Treehouse Newsletter</RouterLink>
 
     <nav aria-label="Main navigation">
-      <button
-        type="button"
-        :class="{ active: currentPage === 'subscribers' }"
-        @click="currentPage = 'subscribers'"
-      >
-        Subscribers
-      </button>
-      <button
-        type="button"
-        :class="{ active: currentPage === 'signup' }"
-        @click="currentPage = 'signup'"
-      >
-        Sign up
-      </button>
+      <RouterLink to="/subscribers">Subscribers</RouterLink>
+      <RouterLink to="/signup">Sign up</RouterLink>
     </nav>
   </header>
 
   <main>
-    <HelloWorld :page="currentPage" @show-subscribers="currentPage = 'subscribers'" />
+    <RouterView />
   </main>
 </template>
 
@@ -58,17 +35,15 @@ nav {
   gap: 0.5rem;
 }
 
-nav button {
+nav a {
   padding: 0.55rem 0.85rem;
-  border: 0;
   border-radius: 0.4rem;
   color: var(--color-text-muted);
-  background: transparent;
-  cursor: pointer;
+  text-decoration: none;
 }
 
-nav button:hover,
-nav button.active {
+nav a:hover,
+nav a.router-link-active {
   color: var(--color-primary-dark);
   background: var(--color-primary-soft);
 }
