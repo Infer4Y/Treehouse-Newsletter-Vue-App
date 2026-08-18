@@ -80,8 +80,8 @@ onMounted(loadSubscribers)
 
 .subscriber-list {
   display: grid;
-  gap: 0.75rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 2.5rem;
   padding: 0;
   list-style: none;
 }
@@ -91,10 +91,18 @@ onMounted(loadSubscribers)
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.55rem;
+  padding: 1.15rem 1.25rem;
+  border: 0;
+  border-left: 5px solid var(--color-primary);
+  border-radius: 8px;
   background: white;
+  box-shadow: 0 12px 35px rgba(72, 64, 62, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subscriber-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(72, 64, 62, 0.12);
 }
 
 .subscriber-list strong,
@@ -104,7 +112,8 @@ onMounted(loadSubscribers)
 
 .subscriber-list strong {
   color: var(--color-heading);
-  font-weight: 650;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 600;
 }
 
 .subscriber-list a {
@@ -116,10 +125,11 @@ onMounted(loadSubscribers)
 .delete-button {
   padding: 0.45rem 0.7rem;
   border: 1px solid #edb7b3;
-  border-radius: 0.4rem;
+  border-radius: 8px;
   color: #9f2621;
   background: #fff8f7;
   cursor: pointer;
+  font-weight: 700;
 }
 
 @media (max-width: 540px) {

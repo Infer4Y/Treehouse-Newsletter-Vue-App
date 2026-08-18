@@ -55,20 +55,27 @@ form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-top: 5px solid var(--color-primary);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 15px 45px rgba(72, 64, 62, 0.1);
 }
 
 label {
   margin-top: 0.75rem;
   color: var(--color-heading);
-  font-weight: 650;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 input {
   width: 100%;
   padding: 0.8rem 0.9rem;
   border: 1px solid var(--color-border-strong);
-  border-radius: 0.4rem;
+  border-radius: 8px;
   color: var(--color-heading);
   background: white;
   font: inherit;
@@ -77,5 +84,11 @@ input {
 input:focus {
   border-color: var(--color-primary);
   outline: 3px solid var(--color-primary-soft);
+}
+
+@media (max-width: 540px) {
+  form {
+    padding: 1.25rem;
+  }
 }
 </style>

@@ -1,29 +1,49 @@
 @import './base.css';
+@import url('https://fonts.googleapis.com/css?family=Asap:400,700|Montserrat:500,600,800&display=swap');
 
 #app {
-  width: min(100% - 2rem, 64rem);
+  width: min(100% - 2.5rem, 70rem);
   margin: 0 auto;
 }
 
 .panel {
-  padding: 3.5rem 0;
+  position: relative;
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.panel::before {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  width: 58px;
+  height: 38px;
+  opacity: 0.18;
+  background:
+    linear-gradient(var(--color-primary) 0 0) 0 0 / 14px 14px,
+    linear-gradient(var(--color-primary) 0 0) 22px 0 / 14px 14px,
+    linear-gradient(var(--color-primary) 0 0) 44px 0 / 14px 14px,
+    linear-gradient(var(--color-primary) 0 0) 11px 22px / 14px 14px,
+    linear-gradient(var(--color-primary) 0 0) 33px 22px / 14px 14px;
+  background-repeat: no-repeat;
+  content: '';
 }
 
 .eyebrow {
   margin-bottom: 0.35rem;
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 h1 {
   color: var(--color-heading);
-  font-size: clamp(2rem, 6vw, 3.25rem);
-  font-weight: 750;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
 }
 
 h1 + p {
@@ -37,17 +57,19 @@ button {
 
 .primary-button,
 .secondary-button {
-  border-radius: 0.4rem;
+  border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .primary-button {
   align-self: flex-start;
   margin-top: 0.5rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-primary-dark);
+  padding: 0.8rem 1.15rem;
+  border: 1px solid var(--color-primary);
   color: white;
-  background: var(--color-primary-dark);
+  background: var(--color-primary);
 }
 
 .secondary-button {
@@ -55,6 +77,15 @@ button {
   border: 1px solid var(--color-border-strong);
   color: var(--color-heading);
   background: white;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button:hover {
+  background: #65a64a;
 }
 
 button:disabled {
@@ -72,6 +103,7 @@ button:disabled {
 .empty-state {
   color: var(--color-text-muted);
   background: white;
+  box-shadow: 0 12px 35px rgba(72, 64, 62, 0.08);
 }
 
 .error {
